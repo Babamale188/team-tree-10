@@ -41,12 +41,12 @@ export function ButtonLink({
     ghost:
       "border border-navy-900/15 text-navy-900 hover:border-royal hover:text-royal",
   }[variant];
+  const L = Link as unknown as React.ComponentType<Record<string, unknown>>;
   return (
-    // @ts-expect-error generic string route
-    <Link to={to} params={params} className={`${base} ${styles} ${className}`}>
+    <L to={to} params={params} className={`${base} ${styles} ${className}`}>
       {children}
       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-    </Link>
+    </L>
   );
 }
 
