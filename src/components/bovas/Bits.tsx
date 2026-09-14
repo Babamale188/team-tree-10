@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ComponentType, ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { img } from "@/lib/bovas/images";
@@ -41,7 +41,7 @@ export function ButtonLink({
     ghost:
       "border border-navy-900/15 text-navy-900 hover:border-royal hover:text-royal",
   }[variant];
-  const L = Link as unknown as React.ComponentType<Record<string, unknown>>;
+  const L = Link as unknown as ComponentType<Record<string, unknown>>;
   return (
     <L to={to} params={params} className={`${base} ${styles} ${className}`}>
       {children}
