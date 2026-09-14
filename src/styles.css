@@ -148,3 +148,83 @@
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 }
+
+/* ============ BOVAS BRAND ============ */
+:root {
+  --background: #ffffff;
+  --foreground: #101828;
+  --card: #ffffff;
+  --card-foreground: #101828;
+  --primary: #155EEF;
+  --primary-foreground: #ffffff;
+  --secondary: #EAF2FF;
+  --secondary-foreground: #071B33;
+  --muted: #EEF2F6;
+  --muted-foreground: #5B6B82;
+  --accent: #DCEBFF;
+  --accent-foreground: #071B33;
+  --border: #E3EAF3;
+  --input: #E3EAF3;
+  --ring: #155EEF;
+  --radius: 1rem;
+  --navy: #071B33;
+  --navy-light: #0D2A4D;
+  --navy-foreground: #ffffff;
+}
+
+@theme {
+  --color-navy-950: #041426;
+  --color-navy-900: #071B33;
+  --color-navy-800: #0D2A4D;
+  --color-royal: #155EEF;
+  --color-bright: #2F80FF;
+  --color-skyline: #DCEBFF;
+  --color-softblue: #EAF2FF;
+  --color-gold: #F4B740;
+  --color-ink: #101828;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+@utility bovas-gradient {
+  background-image: linear-gradient(125deg, #041426 0%, #071B33 35%, #155EEF 85%, #2F80FF 100%);
+}
+
+@utility bovas-mesh {
+  background-image:
+    radial-gradient(900px 480px at 85% -10%, rgba(47, 128, 255, 0.35), transparent 60%),
+    radial-gradient(700px 420px at 5% 110%, rgba(21, 94, 239, 0.28), transparent 60%),
+    linear-gradient(160deg, #041426 0%, #071B33 60%, #0D2A4D 100%);
+}
+
+@utility bovas-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+@utility bovas-diagonals {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.06) 0px,
+    rgba(255, 255, 255, 0.06) 1px,
+    transparent 1px,
+    transparent 14px
+  );
+}
+
+@utility reveal-hidden {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+@utility reveal-shown {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  ::selection { background: #155EEF; color: #fff; }
+}
