@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Linkedin, Twitter, Facebook, Mail, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { BovasLogo } from "./BovasLogo";
 
 const COLUMNS: { title: string; links: { label: string; to: string; params?: Record<string, string> }[] }[] = [
@@ -72,20 +72,6 @@ export function SiteFooter() {
                 <Phone className="h-4 w-4 text-bright" /> +44 (0) 1234 567 890
               </a>
             </div>
-            <div className="mt-6 flex gap-2">
-              {[Linkedin, Twitter, Facebook].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="https://www.linkedin.com"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  aria-label="BOVAS social profile"
-                  className="grid h-9 w-9 place-items-center rounded-lg border border-white/15 text-white/75 transition-colors hover:border-bright hover:text-white"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {COLUMNS.map((col) => (
@@ -149,7 +135,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-white/50">© 2046 BOVAS. All rights reserved.</p>
+          <p className="text-xs text-white/50">© 2024 BOVAS. All rights reserved.</p>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             {LEGAL.map((l) => (
               <li key={l.slug}>

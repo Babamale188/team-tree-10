@@ -98,26 +98,25 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="relative isolate overflow-hidden bovas-mesh pb-16 pt-28 text-white sm:pb-20 sm:pt-32 lg:pb-24 lg:pt-36">
-      <div className="pointer-events-none absolute inset-0 bovas-grid opacity-60" aria-hidden="true" />
-      <div className="relative mx-auto grid max-w-[1400px] items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-14 lg:px-10">
-        <div>
+    <section className="relative isolate flex min-h-[620px] items-end overflow-hidden pb-16 pt-28 text-white sm:min-h-[680px] sm:pb-20 sm:pt-32 lg:pb-24">
+      <img
+        src={img(image, 1800, 1100)}
+        alt={alt}
+        width={1800}
+        height={1100}
+        className="absolute inset-0 h-full w-full object-cover object-center"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-950/78 to-navy-950/15" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-transparent to-navy-950/30" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-0 bovas-grid opacity-25" aria-hidden="true" />
+      <div className="relative mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-10">
+        <div className="max-w-3xl">
           <Eyebrow>{eyebrow}</Eyebrow>
           <h1 className="mt-5 text-[2.15rem] font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-[3.4rem]">
             {title}
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">{sub}</p>
           {children && <div className="mt-8 flex flex-wrap gap-3">{children}</div>}
-        </div>
-        <div className="relative">
-          <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-bright/20 blur-3xl" aria-hidden="true" />
-          <img
-            src={img(image, 1100, 820)}
-            alt={alt}
-            width={1100}
-            height={820}
-            className="relative aspect-[4/3] w-full rounded-[1.5rem] object-cover shadow-[0_40px_90px_-40px_rgba(4,20,38,0.95)] ring-1 ring-white/15"
-          />
         </div>
       </div>
     </section>

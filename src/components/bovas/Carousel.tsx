@@ -7,11 +7,13 @@ export function SwipeCarousel({
   slideClass = "basis-[85%] sm:basis-1/2 lg:basis-1/3",
   tone = "dark",
   ariaLabel,
+  autoplay = false,
 }: {
   items: ReactNode[];
   slideClass?: string;
   tone?: "light" | "dark";
   ariaLabel: string;
+  autoplay?: boolean;
 }) {
   const [ref, api] = useEmblaCarousel({ align: "start", loop: false, containScroll: "trimSnaps" });
   const [canPrev, setCanPrev] = useState(false);
@@ -28,6 +30,15 @@ export function SwipeCarousel({
     update();
     api.on("select", update).on("reInit", update);
   }, [api, update]);
+
+  useEffect(() => {
+    if (!api || !autoplay || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = window.setInterval(() => {
+      if (api.canScrollNext()) api.scrollNext();
+      else api.scrollTo(0);
+    }, 3600);
+    return () => window.clearInterval(timer);
+  }, [api, autoplay]);
 
   const btn = (enabled: boolean) =>
     `grid h-11 w-11 place-items-center rounded-full border transition-colors ${

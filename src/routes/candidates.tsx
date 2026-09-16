@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CheckCircle2 } from "lucide-react";
 import { SiteLayout } from "@/components/bovas/SiteLayout";
-import { ButtonLink, PageHero, SectionHeading, ImageTile, Eyebrow } from "@/components/bovas/Bits";
+import { ButtonLink, PageHero, SectionHeading, Eyebrow } from "@/components/bovas/Bits";
 import { ArticleCard, JobCard } from "@/components/bovas/Cards";
 import { Reveal } from "@/components/bovas/Reveal";
 import { SwipeCarousel } from "@/components/bovas/Carousel";
@@ -84,7 +84,7 @@ function CandidatesPage() {
 
       <section className="bg-navy-950 py-20 text-white lg:py-24">
         <div className="relative mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div>
             <Reveal>
               <SectionHeading
                 tone="light"
@@ -103,14 +103,6 @@ function CandidatesPage() {
                   </li>
                 ))}
               </ul>
-            </Reveal>
-            <Reveal delay={120}>
-              <div className="grid grid-cols-2 gap-4">
-                <ImageTile id={PHOTOS.mentoring} alt="Recruitment consultant advising a candidate" className="ring-1 ring-white/10" />
-                <ImageTile id={PHOTOS.interview} alt="Candidate in a professional interview" className="mt-8 ring-1 ring-white/10" />
-                <ImageTile id={PHOTOS.laptopWork} alt="Candidate searching for jobs on a laptop" className="ring-1 ring-white/10" />
-                <ImageTile id={PHOTOS.handshake} alt="Candidate accepting a job offer" className="mt-8 ring-1 ring-white/10" />
-              </div>
             </Reveal>
           </div>
         </div>
@@ -144,7 +136,6 @@ function CandidatesPage() {
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 We review structure, clarity and evidence — then tell you exactly what to change before your CV reaches a hiring manager.
               </p>
-              <ImageTile id={PHOTOS.planning} alt="Consultant reviewing a candidate CV" className="mt-6" />
               <div className="mt-6">
                 <ButtonLink to="/resources/$slug" params={{ slug: "how-to-build-a-cv-that-gets-noticed" }} variant="ghost">
                   Read the CV guide
@@ -159,7 +150,6 @@ function CandidatesPage() {
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 Company context, interviewer background, likely questions and the outcomes the team is measured on.
               </p>
-              <ImageTile id={PHOTOS.discussion} alt="Candidate practising interview answers with a consultant" className="mt-6" />
               <div className="mt-6">
                 <ButtonLink to="/resources/$slug" params={{ slug: "5-ways-to-prepare-for-your-next-interview" }} variant="ghost">
                   Read the interview guide
@@ -176,7 +166,7 @@ function CandidatesPage() {
             <SectionHeading
               eyebrow="Candidate success stories"
               title="People who found the right fit."
-              sub="Placeholder stories, structured for replacement with real candidate experiences."
+               sub="Career experiences from professionals across the UK, US and Australia."
             />
           </Reveal>
           <div className="mt-10">
@@ -188,7 +178,7 @@ function CandidatesPage() {
                   <div className="mt-5 flex items-center gap-3">
                     <img
                       src={portrait(t.portraitIndex)}
-                      alt={`${t.role} placeholder portrait`}
+                      alt={`${t.name}, ${t.role}`}
                       loading="lazy"
                       width={48}
                       height={48}

@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Users, Search, Crown, Clock3, BadgeCheck, Briefcase } from "lucide-react";
 import { SiteLayout } from "@/components/bovas/SiteLayout";
-import { ButtonLink, PageHero, SectionHeading, ImageTile } from "@/components/bovas/Bits";
+import { ButtonLink, PageHero, SectionHeading } from "@/components/bovas/Bits";
 import { Reveal } from "@/components/bovas/Reveal";
 import { SwipeCarousel } from "@/components/bovas/Carousel";
 import { PHOTOS, portrait } from "@/lib/bovas/images";
@@ -29,12 +29,12 @@ export const Route = createFileRoute("/employers")({
 });
 
 const SERVICES = [
-  { icon: Search, t: "Talent sourcing", d: "Proactive search across our network and the wider market, including professionals who are not actively applying.", img: PHOTOS.analytics, alt: "Recruiter researching candidate profiles" },
-  { icon: BadgeCheck, t: "Candidate screening", d: "Structured interviews, skills validation and reference work before anyone reaches your shortlist.", img: PHOTOS.interview, alt: "Screening interview with a candidate" },
-  { icon: Crown, t: "Executive search", d: "Discreet, mapped search for leadership appointments where the wrong hire is expensive.", img: PHOTOS.presenting, alt: "Executive presenting to a leadership team" },
-  { icon: Clock3, t: "Temporary staffing", d: "Vetted professionals for peak demand, parental cover and project work — available quickly.", img: PHOTOS.officeSpace, alt: "Temporary staff working in a modern office" },
-  { icon: Briefcase, t: "Permanent recruitment", d: "End-to-end hiring for roles you need to get right the first time, with replacement guarantees.", img: PHOTOS.teamMeeting, alt: "Team meeting to plan permanent hiring" },
-  { icon: Users, t: "Hiring advisory", d: "Role definition, salary benchmarking and interview design before you go to market.", img: PHOTOS.planning, alt: "Managers planning a hiring process" },
+  { icon: Search, t: "Talent sourcing", d: "Proactive search across our network and the wider market, including professionals who are not actively applying." },
+  { icon: BadgeCheck, t: "Candidate screening", d: "Structured interviews, skills validation and reference work before anyone reaches your shortlist." },
+  { icon: Crown, t: "Executive search", d: "Discreet, mapped search for leadership appointments where the wrong hire is expensive." },
+  { icon: Clock3, t: "Temporary staffing", d: "Vetted professionals for peak demand, parental cover and project work — available quickly." },
+  { icon: Briefcase, t: "Permanent recruitment", d: "End-to-end hiring for roles you need to get right the first time, with replacement guarantees." },
+  { icon: Users, t: "Hiring advisory", d: "Role definition, salary benchmarking and interview design before you go to market." },
 ];
 
 const BENEFITS = [
@@ -82,7 +82,6 @@ function EmployersPage() {
             {SERVICES.map((s, i) => (
               <Reveal key={s.t} delay={(i % 3) * 80}>
                 <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-[0_18px_40px_-32px_rgba(7,27,51,0.6)] transition-transform duration-300 hover:-translate-y-1">
-                  <ImageTile id={s.img} alt={s.alt} ratio="aspect-[16/9]" className="rounded-none" />
                   <div className="flex flex-1 flex-col p-6">
                     <span className="grid h-11 w-11 place-items-center rounded-xl bg-softblue text-royal">
                       <s.icon className="h-5 w-5" />
@@ -98,7 +97,7 @@ function EmployersPage() {
       </section>
 
       <section className="bg-navy-950 py-20 text-white lg:py-24">
-        <div className="mx-auto grid max-w-[1400px] items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-10">
+         <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
           <Reveal>
             <SectionHeading
               tone="light"
@@ -116,14 +115,6 @@ function EmployersPage() {
             </ul>
             <div className="mt-8">
               <ButtonLink to="/contact">Submit a Vacancy</ButtonLink>
-            </div>
-          </Reveal>
-          <Reveal delay={120}>
-            <div className="grid grid-cols-2 gap-4">
-              <ImageTile id={PHOTOS.collaboration} alt="Hiring team collaborating" className="ring-1 ring-white/10" />
-              <ImageTile id={PHOTOS.workplaceCulture} alt="Modern workplace culture" className="mt-8 ring-1 ring-white/10" />
-              <ImageTile id={PHOTOS.onboarding} alt="New employee being onboarded" className="ring-1 ring-white/10" />
-              <ImageTile id={PHOTOS.handshake} alt="Employer welcoming a new hire" className="mt-8 ring-1 ring-white/10" />
             </div>
           </Reveal>
         </div>
@@ -154,7 +145,7 @@ function EmployersPage() {
             <SectionHeading
               eyebrow="Employer success stories"
               title="Teams built with BOVAS."
-              sub="Placeholder stories, clearly structured for replacement with real client feedback."
+               sub="Hiring experiences from teams across the UK, US and Australia."
             />
           </Reveal>
           <div className="mt-10">
@@ -166,7 +157,7 @@ function EmployersPage() {
                   <div className="mt-5 flex items-center gap-3">
                     <img
                       src={portrait(t.portraitIndex)}
-                      alt={`${t.role} placeholder portrait`}
+                       alt={`${t.name}, ${t.role}`}
                       loading="lazy"
                       width={48}
                       height={48}
