@@ -1,9 +1,9 @@
 import { useState, type FormEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { toast } from "sonner";
 import { SiteLayout } from "@/components/bovas/SiteLayout";
-import { ButtonLink, PageHero, SectionHeading, ImageTile } from "@/components/bovas/Bits";
+import { ButtonLink, PageHero, SectionHeading } from "@/components/bovas/Bits";
 import { Reveal } from "@/components/bovas/Reveal";
 import { PHOTOS } from "@/lib/bovas/images";
 
@@ -128,26 +128,6 @@ function ContactPage() {
                 <p className="mt-5 text-xs text-muted-foreground">
                   Office hours: Monday to Friday, 9:00–18:00. Contact details are placeholders until confirmed.
                 </p>
-                <div className="mt-6 flex gap-2">
-                  {[Linkedin, Twitter, Facebook].map((Icon, i) => (
-                    <a
-                      key={i}
-                      href="https://www.linkedin.com"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      aria-label="BOVAS social profile"
-                      className="grid h-10 w-10 place-items-center rounded-xl border border-border text-navy-900 transition-colors hover:border-royal hover:text-royal"
-                    >
-                      <Icon className="h-4 w-4" />
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              <ImageTile id={PHOTOS.officeSpace} alt="The BOVAS office workspace" ratio="aspect-[16/10]" />
-              <div className="grid grid-cols-2 gap-4">
-                <ImageTile id={PHOTOS.discussion} alt="Consultants talking with a visitor" />
-                <ImageTile id={PHOTOS.handshake} alt="Meeting a BOVAS consultant" />
               </div>
             </div>
           </Reveal>

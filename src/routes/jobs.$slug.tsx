@@ -5,7 +5,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { SiteLayout } from "@/components/bovas/SiteLayout";
-import { ButtonLink, Eyebrow, ImageTile, SectionHeading } from "@/components/bovas/Bits";
+import { ButtonLink, Eyebrow, SectionHeading } from "@/components/bovas/Bits";
 import { JobCard } from "@/components/bovas/Cards";
 import { img } from "@/lib/bovas/images";
 import { jobBySlug, formatSalary, postedLabel, relatedJobs } from "@/lib/bovas/jobs";
@@ -108,10 +108,13 @@ function JobDetail() {
   return (
     <SiteLayout>
       {/* HERO */}
-      <section className="relative isolate overflow-hidden bovas-mesh pb-16 pt-28 text-white sm:pt-32 lg:pb-20 lg:pt-36">
-        <div className="pointer-events-none absolute inset-0 bovas-grid opacity-60" aria-hidden="true" />
-        <div className="relative mx-auto grid max-w-[1400px] gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:px-10">
-          <div>
+      <section className="relative isolate flex min-h-[650px] items-end overflow-hidden pb-16 pt-28 text-white sm:pb-20 sm:pt-32 lg:pb-24">
+        <img src={img(job.heroImage, 1800, 1100)} alt={`${job.industryName} professionals at work`} className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-950/80 to-navy-950/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-transparent to-navy-950/30" />
+        <div className="pointer-events-none absolute inset-0 bovas-grid opacity-25" aria-hidden="true" />
+        <div className="relative mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-10">
+          <div className="max-w-3xl">
             <Eyebrow>{job.industryName}</Eyebrow>
             <div className="mt-5 flex items-start gap-4">
               <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-white/10 text-base font-bold ring-1 ring-white/20">
@@ -152,16 +155,6 @@ function JobDetail() {
               </button>
             </div>
           </div>
-          <div className="relative">
-            <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-bright/20 blur-3xl" aria-hidden="true" />
-            <img
-              src={img(job.heroImage, 1100, 820)}
-              alt={`${job.industryName} professionals at ${job.company}`}
-              width={1100}
-              height={820}
-              className="relative aspect-[4/3] w-full rounded-[1.5rem] object-cover ring-1 ring-white/15"
-            />
-          </div>
         </div>
       </section>
 
@@ -172,10 +165,6 @@ function JobDetail() {
             <section>
               <h2 className="text-xl font-extrabold text-navy-900">Job Overview</h2>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{job.summary}</p>
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                <ImageTile id={job.gallery[0].id} alt={job.gallery[0].alt} />
-                <ImageTile id={job.gallery[1].id} alt={job.gallery[1].alt} />
-              </div>
             </section>
 
             <Section title="About the Role">
@@ -192,8 +181,6 @@ function JobDetail() {
 
             <Section title="Responsibilities"><List items={job.responsibilities} /></Section>
 
-            <ImageTile id={job.gallery[2].id} alt={job.gallery[2].alt} ratio="aspect-[21/9]" />
-
             <Section title="Requirements"><List items={job.requirements} /></Section>
             <Section title="Preferred Qualifications"><List items={job.preferred} /></Section>
 
@@ -202,22 +189,9 @@ function JobDetail() {
                 Expect a balance of focused delivery work and collaboration. In the first three months you will learn the
                 team's systems, build relationships with key stakeholders and take ownership of a defined area.
               </p>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <ImageTile id={job.gallery[3].id} alt={job.gallery[3].alt} />
-                <ImageTile id={job.gallery[4].id} alt={job.gallery[4].alt} />
-              </div>
             </Section>
 
             <Section title="What We Offer"><List items={job.benefits} /></Section>
-
-            <Section title="About the Company">
-              <p>
-                {job.company} is a {job.industryName.toLowerCase()} organisation working with clients across{" "}
-                {job.country}. Company details shown here are placeholder content and will be replaced with verified
-                employer information.
-              </p>
-              <ImageTile id={job.gallery[5].id} alt={job.gallery[5].alt} ratio="aspect-[21/9]" />
-            </Section>
 
             <Section title="Location">
               <p className="flex items-center gap-2"><Building2 className="h-4 w-4 text-royal" />{job.location} — {job.workMode}</p>
