@@ -321,7 +321,12 @@ function build(): Job[] {
           "Structured learning and development budget",
           "Generous annual leave allowance",
         ],
-        heroImage: media.hero,
+        heroImage:
+          media.gallery.length > 0
+            ? [media.hero, ...media.gallery.map((g) => g.id)][
+                (ri + c) % (media.gallery.length + 1)
+              ]
+            : media.hero,
         gallery: [
           ...media.gallery.slice(0, 3),
           { id: PHOTOS.teamMeeting, alt: `${company} team collaborating in the office` },
