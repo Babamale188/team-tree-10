@@ -9,7 +9,10 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TeamRouteImport } from './routes/team'
+import { Route as ServicesRouteImport } from './routes/services'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as FaqsRouteImport } from './routes/faqs'
 import { Route as EmployersRouteImport } from './routes/employers'
 import { Route as DirectoryRouteImport } from './routes/directory'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -32,9 +35,24 @@ import { Route as AdminAdminPeopleIndexRouteImport } from './routes/_admin.admin
 import { Route as AdminAdminPeopleNewRouteImport } from './routes/_admin.admin.people.new'
 import { Route as AdminAdminPeopleEmployeeIdEditRouteImport } from './routes/_admin.admin.people_.$employeeId.edit'
 
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqsRoute = FaqsRouteImport.update({
+  id: '/faqs',
+  path: '/faqs',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EmployersRoute = EmployersRouteImport.update({
@@ -151,7 +169,10 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/directory': typeof DirectoryRoute
   '/employers': typeof EmployersRoute
+  '/faqs': typeof FaqsRoute
   '/login': typeof LoginRoute
+  '/services': typeof ServicesRoute
+  '/team': typeof TeamRoute
   '/employee/$employeeId': typeof EmployeeEmployeeIdRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/jobs/$slug': typeof JobsSlugRoute
@@ -174,7 +195,10 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/directory': typeof DirectoryRoute
   '/employers': typeof EmployersRoute
+  '/faqs': typeof FaqsRoute
   '/login': typeof LoginRoute
+  '/services': typeof ServicesRoute
+  '/team': typeof TeamRoute
   '/employee/$employeeId': typeof EmployeeEmployeeIdRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/jobs/$slug': typeof JobsSlugRoute
@@ -198,7 +222,10 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/directory': typeof DirectoryRoute
   '/employers': typeof EmployersRoute
+  '/faqs': typeof FaqsRoute
   '/login': typeof LoginRoute
+  '/services': typeof ServicesRoute
+  '/team': typeof TeamRoute
   '/employee/$employeeId': typeof EmployeeEmployeeIdRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/jobs/$slug': typeof JobsSlugRoute
@@ -223,7 +250,10 @@ export interface FileRouteTypes {
     | '/contact'
     | '/directory'
     | '/employers'
+    | '/faqs'
     | '/login'
+    | '/services'
+    | '/team'
     | '/employee/$employeeId'
     | '/industries/$slug'
     | '/jobs/$slug'
@@ -246,7 +276,10 @@ export interface FileRouteTypes {
     | '/contact'
     | '/directory'
     | '/employers'
+    | '/faqs'
     | '/login'
+    | '/services'
+    | '/team'
     | '/employee/$employeeId'
     | '/industries/$slug'
     | '/jobs/$slug'
@@ -269,7 +302,10 @@ export interface FileRouteTypes {
     | '/contact'
     | '/directory'
     | '/employers'
+    | '/faqs'
     | '/login'
+    | '/services'
+    | '/team'
     | '/employee/$employeeId'
     | '/industries/$slug'
     | '/jobs/$slug'
@@ -294,7 +330,10 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DirectoryRoute: typeof DirectoryRoute
   EmployersRoute: typeof EmployersRoute
+  FaqsRoute: typeof FaqsRoute
   LoginRoute: typeof LoginRoute
+  ServicesRoute: typeof ServicesRoute
+  TeamRoute: typeof TeamRoute
   EmployeeEmployeeIdRoute: typeof EmployeeEmployeeIdRoute
   IndustriesSlugRoute: typeof IndustriesSlugRoute
   JobsSlugRoute: typeof JobsSlugRoute
@@ -307,11 +346,32 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faqs': {
+      id: '/faqs'
+      path: '/faqs'
+      fullPath: '/faqs'
+      preLoaderRoute: typeof FaqsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/employers': {
@@ -500,7 +560,10 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DirectoryRoute: DirectoryRoute,
   EmployersRoute: EmployersRoute,
+  FaqsRoute: FaqsRoute,
   LoginRoute: LoginRoute,
+  ServicesRoute: ServicesRoute,
+  TeamRoute: TeamRoute,
   EmployeeEmployeeIdRoute: EmployeeEmployeeIdRoute,
   IndustriesSlugRoute: IndustriesSlugRoute,
   JobsSlugRoute: JobsSlugRoute,
