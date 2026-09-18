@@ -110,13 +110,13 @@ export function PageHero({
       <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-transparent to-navy-950/30" aria-hidden="true" />
       <div className="pointer-events-none absolute inset-0 bovas-grid opacity-25" aria-hidden="true" />
       <div className="relative mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-10">
-        <div className="max-w-3xl">
+        <div className="mx-auto max-w-3xl text-center">
           <Eyebrow>{eyebrow}</Eyebrow>
           <h1 className="mt-5 text-[2.15rem] font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-[3.4rem]">
             {title}
           </h1>
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">{sub}</p>
-          {children && <div className="mt-8 flex flex-wrap gap-3">{children}</div>}
+          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">{sub}</p>
+          {children && <div className="mt-8 flex flex-wrap justify-center gap-3">{children}</div>}
         </div>
       </div>
     </section>
